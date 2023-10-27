@@ -58,11 +58,11 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'name' => 'nullable|unique:categories|max:255',
+            'name' => 'required|max:255',
             'description' => 'nullable|max:255',
             'price' => 'nullable|numeric',
             'currency' => 'nullable|string',
-            'display_image_url' => 'nullable|url',
+            'display_image_url' => 'required|url',
             'category_id' => 'nullable|exists:categories,id',
         ]);
 
